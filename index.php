@@ -3,7 +3,7 @@
   require_once 'config/db.php';
 
   // Create Query
-  $query = "SELECT * FROM `posts`";
+  $query = "SELECT * FROM `posts` ORDER BY `create_data` DESC";
 
   // Get Result
   $result = mysqli_query($conn, $query);
@@ -21,6 +21,10 @@
 ?>
   <h1 class="panel-heading text-center text-uppercase">Posts</h1>
   <div class="container">
+    <div class="text-right">
+      <a href="addPost.php" class="btn btn-success btn-sm">Add Post</a>
+    </div>
+    <br><br>
     <?php foreach ($posts as $post) : ?>
       <div class="well">
         <h3><?= $post['title']; ?></h3>
